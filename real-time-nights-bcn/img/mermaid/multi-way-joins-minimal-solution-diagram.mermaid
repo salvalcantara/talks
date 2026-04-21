@@ -1,0 +1,51 @@
+classDiagram
+direction TB
+    class BaseMultiInputKeyedOperator {
+    }
+
+    class KeyedMultiInputOperator3 {
+    }
+
+    class KeyedThreeInputOperator {
+	    X x
+	    Y y
+	    Z z
+	    processElement1(X x, ctx, out)
+	    processElement2(Y y, ctx, out)
+	    processElement3(Z z, ctx, out)
+    }
+
+    class KeyedMultiInputOperatorBuilder {
+	    addInput(stream, keySelector)
+	    addInput(keyedStream)
+	    build()
+    }
+
+    class KeyedMultiInputOperator25 {
+    }
+
+    class MultiInputOperatorFactory {
+	    createStreamOperator(params) StreamOperator~OUT~
+    }
+
+    class Out {
+    }
+
+    class Ellipsis["..."] {
+    }
+
+    class KeyedTwentyFiveInputOperator {
+	    ...
+	    processElement1(I1 i1, ctx, out)
+	    ...(...)
+        processElement25(I1 i1,...,I25 i25, ctx, out)
+    }
+
+    KeyedMultiInputOperatorBuilder ..> MultiInputOperatorFactory
+    BaseMultiInputKeyedOperator <|-- KeyedMultiInputOperator3
+    KeyedMultiInputOperator3 <|-- KeyedThreeInputOperator
+    BaseMultiInputKeyedOperator <|-- Ellipsis
+    BaseMultiInputKeyedOperator <|-- KeyedMultiInputOperator25
+    KeyedMultiInputOperator25 <|-- KeyedTwentyFiveInputOperator
+    KeyedThreeInputOperator ..> Out
+    KeyedTwentyFiveInputOperator ..> Out

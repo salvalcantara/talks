@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Multi-Way Joins</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/auvik.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/grayscale.css">
+		<style>
+			.pdf-only {
+				display: none;
+			}
+
+			.print-pdf .screen-only {
+				display: none !important;
+			}
+
+			.print-pdf .pdf-only {
+				display: block !important;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+ 				<section data-markdown="slides.md"
+ 				         data-separator="^\n\n\n"
+ 				         data-separator-vertical="^\n\n"
+ 				         data-separator-notes="^Note:"
+ 				         data-charset="utf-8">
+ 				    <!--
+ 				        Note that Windows uses `\r\n` instead of `\n` as its linefeed character.
+ 				        For a regex that supports all operating systems, use `\r?\n` instead of `\n`.
+ 				    -->
+ 				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/math/math.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealMath ]
+			});
+		</script>
+	</body>
+</html>

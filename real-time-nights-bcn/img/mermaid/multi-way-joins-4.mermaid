@@ -1,0 +1,48 @@
+graph LR
+    classDef noShape fill:none,stroke:none;
+
+    u1[u1]:::noShape --> X1
+    u2[u2]:::noShape --> X2
+    u3[u3]:::noShape --> X4
+    u4[u4]:::noShape --> X6
+    
+    subgraph Joiner 1
+    X1[(x1)]
+    X2[(x2)]
+    S1{Σ}
+    end
+
+    subgraph Joiner 2
+    X3[(x3)]
+    X4[(x4)]
+    S2{Σ}
+    end
+
+    subgraph Joiner 3
+    X5[(x5)]
+    X6[(x6)]
+    S3{Σ}
+    end
+
+    X1 --> S1
+    X2 --> S1
+
+    S1 --> X3
+    X3 --> S2
+    X4 --> S2
+
+    S2 --> X5
+    X5 --> S3
+    X6 --> S3
+
+    S3 --> y[y]:::noShape
+
+    style X1 fill:#dfd,stroke:#333,stroke-width:2px
+    style X2 fill:#dfd,stroke:#333,stroke-width:2px
+    style X3 fill:#fdd,stroke:#333,stroke-width:2px
+    style X4 fill:#dfd,stroke:#333,stroke-width:2px
+    style X5 fill:#fdd,stroke:#333,stroke-width:2px
+    style X6 fill:#dfd,stroke:#333,stroke-width:2px
+    style S1 fill:#fff,stroke:#333,stroke-width:1px,stroke-dasharray: 5 5
+    style S2 fill:#fff,stroke:#333,stroke-width:1px,stroke-dasharray: 5 5
+    style S3 fill:#fff,stroke:#333,stroke-width:1px,stroke-dasharray: 5 5

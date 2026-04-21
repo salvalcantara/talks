@@ -1,0 +1,42 @@
+graph LR
+    classDef noShape fill:none,stroke:none;
+    classDef state fill:#dfd,stroke:#333,stroke-width:2px;
+
+    u1[u1]:::noShape
+    u2[u2]:::noShape
+    u3[u3]:::noShape
+    u4[u4]:::noShape
+
+    subgraph "Stream Union"
+        Union((∪))
+    end
+
+    subgraph "Fused ProcessFunction (Minimal)"
+        X1[(x1)]:::state
+        X2[(x2)]:::state
+        X3[(x3)]:::state
+        X4[(x4)]:::state
+        Logic{Σ}
+    end
+
+    u1 --> Union
+    u2 --> Union
+    u3 --> Union
+    u4 --> Union
+    
+    Union -- "Multiplexed u" --> Logic
+    
+    Logic -.-> X1
+    Logic -.-> X2
+    Logic -.-> X3
+    Logic -.-> X4
+
+    X1 --> Logic
+    X2 --> Logic
+    X3 --> Logic
+    X4 --> Logic
+
+    Logic --> y[y]:::noShape
+
+    style Union fill:#fff,stroke:#333,stroke-width:1px
+    style Logic fill:#fff,stroke:#333,stroke-width:1px,stroke-dasharray: 5 5
