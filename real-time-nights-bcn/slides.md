@@ -180,19 +180,19 @@ public class KeyedThreeInputOperator extends KeyedMultiInputOperator3<X, Y, Z, O
   @Override
   protected void processElement1(X x, Context ctx, Collector<Out> out) throws Exception {
     lastX.update(x.getX());
-    scheduleJoinTimer(ctx);
+    join(ctx, out);
   }
 
   @Override
   protected void processElement2(Y y, Context ctx, Collector<Out> out) throws Exception {
     lastY.update(y.getY());
-    scheduleJoinTimer(ctx);
+    join(ctx, out);
   }
 
   @Override
   protected void processElement3(Z z, Context ctx, Collector<Out> out) throws Exception {
     lastZ.update(z.getZ());
-    scheduleJoinTimer(ctx);
+    join(ctx, out);
   }
 }
 ```
@@ -229,24 +229,24 @@ DataStream<Out> joined =
 class Joiner1 extends KeyedCoProcessFunction<String, X, Y, XY> {
   public void processElement1(X x, Context ctx, Collector<XY> out) throws Exception {
     lastX.update(x.getX());
-    scheduleJoinTimer(ctx);
+    join(ctx, out);
   }
 
   public void processElement2(Y y, Context ctx, Collector<XY> out) throws Exception {
     lastY.update(y.getY());
-    scheduleJoinTimer(ctx);
+    join(ctx, out);
   }
 }
 
 class Joiner2 extends KeyedCoProcessFunction<String, XY, Z, Out> {
   public void processElement1(XY xy, Context ctx, Collector<Out> out) throws Exception {
     lastXY.update(xy);
-    scheduleJoinTimer(ctx);
+    join(ctx, out);
   }
 
   public void processElement2(Z z, Context ctx, Collector<Out> out) throws Exception {
     lastZ.update(z.getZ());
-    scheduleJoinTimer(ctx);
+    join(ctx, out);
   }
 }
 ```
@@ -280,17 +280,17 @@ DataStream<Out> joined = builder.build("xyz-join");
 public class Joiner extends KeyedMultiInputOperator3<X, Y, Z, Out> {
   protected void processElement1(X x, Context ctx, Collector<Out> out) throws Exception {
     lastX.update(x.getX());
-    scheduleJoinTimer(ctx);
+    join(ctx, out);
   }
 
   protected void processElement2(Y y, Context ctx, Collector<Out> out) throws Exception {
     lastY.update(y.getY());
-    scheduleJoinTimer(ctx);
+    join(ctx, out);
   }
 
   protected void processElement3(Z z, Context ctx, Collector<Out> out) throws Exception {
     lastZ.update(z.getZ());
-    scheduleJoinTimer(ctx);
+    join(ctx, out);
   }
 }
 ```
