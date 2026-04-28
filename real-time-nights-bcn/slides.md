@@ -150,7 +150,7 @@ $$
 
 ![Multi-Way Joins - Minimal Ergonomic Solution Diagram](img/multi-way-joins-minimal-solution-diagram.png) <!-- .element width="66%" -->
 
-> See [here](https://gitlab.com/auviknetworks/platform/flink-collections-sdk-java/-/merge_requests/300) and [FLINK-39131](https://issues.apache.org/jira/projects/FLINK/issues/FLINK-39131).
+> See more in [FLINK-39131](https://issues.apache.org/jira/projects/FLINK/issues/FLINK-39131).
 <!-- .element style="font-size:0.5em" -->
 
 
